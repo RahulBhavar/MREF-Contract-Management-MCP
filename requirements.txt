@@ -8,5 +8,6 @@ urllib3>=2.0.0
 # Optional dependencies for enhanced functionality
 python-dateutil>=2.8.2
 
-# Note: MCP SDK is provided by Bob's runtime environment
-# No additional MCP packages needed for standalone operation
+# Note: MCP SDK (mcp>=0.9.0) is provided by Bob's runtime environment
+# This server is designed to run within Bob/Claude Desktop, not standalone
+# The MCP framework is automatically available when running as an MCP server
