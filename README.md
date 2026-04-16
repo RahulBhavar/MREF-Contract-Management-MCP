@@ -50,27 +50,32 @@ Edit the [`config.json`](config.json) file with your credentials:
 
 **Note:** The current configuration uses username "rahul" for testing. Update with your actual TRIRIGA credentials.
 
-3. **Verify MCP Registration**
+3. **Register MCP Server with Bob**
 
-The server is registered in Bob's MCP settings at:
-`/Users/rahulbhavar/.bob/settings/mcp_settings.json`
+Add the server to Bob's MCP settings file (typically at `~/.bob/settings/mcp_settings.json`):
 
 ```json
 {
   "mcpServers": {
-    "bob-mref2-mcp": {
+    "mref-contract-management": {
       "command": "python3",
       "args": [
-        "/Users/rahulbhavar/Documents/BOB/Bob_MREF2_MCP/mref_comprehensive_mcp_server.py"
+        "/path/to/your/Bob_MREF2_MCP/mref_comprehensive_mcp_server.py"
       ],
       "env": {
-        "PYTHONPATH": "/Users/rahulbhavar/Documents/BOB/Bob_MREF2_MCP"
+        "PYTHONPATH": "/path/to/your/Bob_MREF2_MCP"
       },
       "disabled": false
     }
   }
 }
 ```
+
+**Replace `/path/to/your/Bob_MREF2_MCP` with your actual clone directory path.**
+
+For example:
+- macOS/Linux: `/Users/yourname/projects/Bob_MREF2_MCP`
+- Windows: `C:\Users\yourname\projects\Bob_MREF2_MCP`
 
 4. **Restart Bob** to load the MCP server
 
