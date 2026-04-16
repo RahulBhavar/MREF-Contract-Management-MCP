@@ -1,0 +1,29 @@
+{
+  "mref": {
+    "base_url": "https://your-tririga-instance.com",
+    "auth_path": "/p/websignon/signon",
+    "username": "your_username",
+    "password": "your_password",
+    "timeout": 30,
+    "verify_ssl": false
+  },
+  "oslc_endpoints": {
+    "query": {
+      "lease": "/oslc/spq/cstRELeaseQC",
+      "contract": "/oslc/spq/cstREContractQC",
+      "building": "/oslc/spq/triBuildingQC",
+      "location": "/oslc/spq/triLocationQC"
+    },
+    "service_object": {
+      "lease": "/oslc/so/cstRELeaseCF",
+      "contract": "/oslc/so/cstREContractCF",
+      "building": "/oslc/so/triBuildingCF",
+      "location": "/oslc/so/triLocationCF"
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "mref_oslc_client.log",
+    "format": "%(asctime)s - %(levelname)s - %(message)s"
+  }
+}
