@@ -52,14 +52,14 @@ Copy `config.example.json` to `config.json` and edit with your credentials:
 ```json
 {
   "mref": {
-    "base_url": "https://semas.facilities.semas.apps.srvengmas.cp.fyre.ibm.com",
+    "base_url": "https://your-tririga-instance.com",
     "username": "your_username",
     "password": "your_password"
   }
 }
 ```
 
-**Note:** The current configuration uses username "rahul" for testing. Update with your actual TRIRIGA credentials.
+**Note:** Replace with your actual TRIRIGA instance URL and credentials.
 
 4. **Register MCP Server with Bob**
 
@@ -72,11 +72,11 @@ Add the server to Bob's MCP settings file at `<workspace>/.bob/mcp.json`:
       "command": "/opt/homebrew/bin/python3.11",
       "args": [
         "-u",
-        "/Users/rahulbhavar/Documents/BOB/mref-contract-mcp/mref_comprehensive_mcp_server.py"
+        "/path/to/your/mref-contract-mcp/mref_comprehensive_mcp_server.py"
       ],
-      "cwd": "/Users/rahulbhavar/Documents/BOB/mref-contract-mcp",
+      "cwd": "/path/to/your/mref-contract-mcp",
       "env": {
-        "PYTHONPATH": "/Users/rahulbhavar/Documents/BOB/mref-contract-mcp"
+        "PYTHONPATH": "/path/to/your/mref-contract-mcp"
       },
       "disabled": false,
       "alwaysAllow": [
@@ -96,7 +96,10 @@ Add the server to Bob's MCP settings file at `<workspace>/.bob/mcp.json`:
 }
 ```
 
-**Important:** Update all paths to match your actual installation directory.
+**Important:**
+- Replace `/path/to/your/mref-contract-mcp` with your actual installation directory
+- On macOS with Homebrew Python 3.11, use `/opt/homebrew/bin/python3.11`
+- On Linux, you may need to use `/usr/bin/python3.11` or your Python 3.11 path
 
 5. **Restart Bob** to load the MCP server
 
