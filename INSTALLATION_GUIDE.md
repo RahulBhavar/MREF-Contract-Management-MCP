@@ -1,8 +1,30 @@
-# Bob_MREF2_MCP - Installation & Distribution Guide
+# MREF Contract Manager - Installation & Distribution Guide
 
 ## 📦 Package Distribution Options
 
-This guide covers multiple ways to distribute and install the Bob_MREF2_MCP package for use by others.
+This guide covers multiple ways to distribute and install the MREF Contract Manager MCP server for use by others.
+
+## ⚠️ Important: Python Version Requirement
+
+**This MCP server requires Python 3.10 or higher** due to the `mcp` package dependency.
+
+### Check Your Python Version
+```bash
+python3 --version
+```
+
+### Install Python 3.10+ (if needed)
+
+**macOS (Homebrew):**
+```bash
+brew install python@3.11
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt update
+sudo apt install python3.11
+```
 
 ---
 
@@ -12,22 +34,26 @@ This guide covers multiple ways to distribute and install the Bob_MREF2_MCP pack
 
 ```bash
 # Navigate to the package directory
-cd /Users/rahulbhavar/Documents/BOB/Bob_MREF2_MCP
+cd /path/to/mref-contract-mcp
 
-# Install in development mode (editable)
-pip install -e .
+# Verify Python version
+python3 --version  # Must be 3.10+
 
-# Or install normally
-pip install .
+# Install dependencies
+pip3 install -r requirements.txt
+
+# Or use specific Python version
+/opt/homebrew/bin/python3.11 -m pip install -r requirements.txt
 ```
 
 ### For Users on Different Machines
 
 1. **Copy the entire directory** to the target machine
-2. Run the installation command:
+2. **Verify Python 3.10+** is installed
+3. Run the installation command:
 ```bash
-cd Bob_MREF2_MCP
-pip install .
+cd mref-contract-mcp
+pip3 install -r requirements.txt
 ```
 
 ---

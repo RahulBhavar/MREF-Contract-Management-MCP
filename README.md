@@ -1,8 +1,8 @@
-# MREF Contract Management MCP Server
+# MREF Contract Manager
 
 ## 🎯 Overview
 
-A comprehensive Model Context Protocol (MCP) server for IBM Maximo Real Estate and Facilities (TRIRIGA) that enables AI assistants to manage real estate contracts and leases. This production-ready tool provides 10 powerful capabilities for contract management, data analysis, and reporting through OSLC APIs.
+A comprehensive Model Context Protocol (MCP) server for IBM Maximo Real Estate and Facilities (MREF/TRIRIGA) that enables AI assistants to manage real estate contracts and leases. This production-ready tool provides 10 powerful capabilities for contract management, data analysis, and reporting through OSLC APIs.
 
 ## ✨ Features
 
@@ -23,21 +23,33 @@ A comprehensive Model Context Protocol (MCP) server for IBM Maximo Real Estate a
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- **Python 3.10 or higher** (required for MCP package)
 - IBM Bob with MCP support
 - Access to Maximo Real Estate and Facilities (TRIRIGA)
 
 ### Installation
 
-1. **Install Dependencies**
+1. **Verify Python Version**
 ```bash
-cd Bob_MREF2_MCP
-pip install -r requirements.txt
+python3 --version  # Must be 3.10 or higher
 ```
 
-2. **Configure Connection**
+If you need Python 3.10+, install via Homebrew (macOS):
+```bash
+brew install python@3.11
+```
 
-Edit the [`config.json`](config.json) file with your credentials:
+2. **Install Dependencies**
+```bash
+cd mref-contract-mcp
+pip3 install -r requirements.txt
+# Or use specific Python version:
+/opt/homebrew/bin/python3.11 -m pip install -r requirements.txt
+```
+
+3. **Configure Connection**
+
+Copy `config.example.json` to `config.json` and edit with your credentials:
 ```json
 {
   "mref": {

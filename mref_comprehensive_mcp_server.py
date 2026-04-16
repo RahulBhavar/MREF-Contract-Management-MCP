@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Bob_MREF2_MCP - Comprehensive MCP Server for Maximo Real Estate and Facilities
-Provides 10 comprehensive tools for managing real estate contracts/leases
+MREF Contract Manager - MCP Server for Maximo Real Estate and Facilities
+Comprehensive contract and lease management through OSLC APIs
+Provides 10 powerful tools for managing real estate contracts/leases
 """
 
 import asyncio
@@ -22,7 +23,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Initialize MCP server
-app = Server("bob-mref2-comprehensive")
+app = Server("mref-contract-manager")
 
 # Global client instance
 mref_client: Optional[MREFOSLCClient] = None

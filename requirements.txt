@@ -1,5 +1,11 @@
-# Bob_MREF2_MCP Requirements
-# Maximo Real Estate and Facilities - OSLC Integration
+# MREF Contract Manager Requirements
+# Maximo Real Estate and Facilities - Contract Management via OSLC
+
+# IMPORTANT: Requires Python 3.10 or higher
+# The MCP package requires Python >= 3.10
+
+# MCP Server Framework
+mcp>=0.9.0
 
 # Core dependencies
 requests>=2.31.0
@@ -7,7 +13,3 @@ urllib3>=2.0.0
 
 # Optional dependencies for enhanced functionality
 python-dateutil>=2.8.2
-
-# Note: MCP SDK (mcp>=0.9.0) is provided by Bob's runtime environment
-# This server is designed to run within Bob/Claude Desktop, not standalone
-# The MCP framework is automatically available when running as an MCP server
