@@ -1,0 +1,12 @@
+# Bob_MREF2_MCP Requirements
+# Maximo Real Estate and Facilities - OSLC Integration
+
+# Core dependencies
+requests>=2.31.0
+urllib3>=2.0.0
+
+# Optional dependencies for enhanced functionality
+python-dateutil>=2.8.2
+
+# Note: MCP SDK is provided by Bob's runtime environment
+# No additional MCP packages needed for standalone operation
