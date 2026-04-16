@@ -266,8 +266,6 @@ Internal IBM use only.
 ## 🔗 Related Projects
 
 - **[Masterdata_MREF](https://github.com/RahulBhavar/Masterdata_MREF)** - Master data management for MREF (Organizations, Locations, Geography, People)
-- **[Bob2_maximo](https://github.com/RahulBhavar/Bob2_maximo)** - Maximo Asset Management MCP integration
-- **[MREF_MCP](https://github.com/RahulBhavar/MREF_MCP)** - Alternative MREF connector with session management
 
 ## 📞 Support
 
