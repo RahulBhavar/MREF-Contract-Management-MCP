@@ -318,10 +318,8 @@ async def handle_fetch_all(client: MREFOSLCClient, arguments: Dict[str, Any]) ->
 
 async def handle_create(client: MREFOSLCClient, arguments: Dict[str, Any]) -> List[TextContent]:
     """Create new contract"""
+    # Only include writable fields (no read-only fields like spi:triContractStatusCL, spi:triStatusCL, spi:triContractRentableNU)
     contract_data = {
-        "userName": config['mref']['username'],
-        "password": config['mref']['password'],
-        "spi:action": "Create Draft",
         "spi:triNameTX": arguments.get('contract_name'),
         "spi:triIdTX": arguments.get('contract_id', ''),
         "spi:triCityTX": arguments.get('city', ''),
@@ -329,7 +327,6 @@ async def handle_create(client: MREFOSLCClient, arguments: Dict[str, Any]) -> Li
         "spi:triCountryTX": arguments.get('country', ''),
         "spi:triStartDA": arguments.get('start_date', ''),
         "spi:triExpirationDA": arguments.get('end_date', ''),
-        "spi:triContractStatusCL": arguments.get('status', 'Draft'),
         "spi:triProviderTypeLI": arguments.get('provider_type', 'Primary'),
         "spi:triAccountingTypeLI": arguments.get('accounting_type', 'Accounts Payable (AP)'),
         "spi:triAccountingCalendarCL": arguments.get('accounting_calendar', 'Standard Calendar')
@@ -337,7 +334,18 @@ async def handle_create(client: MREFOSLCClient, arguments: Dict[str, Any]) -> Li
     
     result = client.oslc_post('/oslc/so/cstRELeaseCF', contract_data)
     
-    return [TextContent(type="text", text=json.dumps(result, indent=2))]
+    if result['success']:
+        response = {
+            "success": True,
+            "status_code": result.get('status_code'),
+            "message": "Contract created successfully",
+            "location": result.get('location', ''),
+            "duration_ms": result.get('duration_ms')
+        }
+    else:
+        response = result
+    
+    return [TextContent(type="text", text=json.dumps(response, indent=2))]
 
 
 async def handle_fetch_filtered(client: MREFOSLCClient, arguments: Dict[str, Any]) -> List[TextContent]:
