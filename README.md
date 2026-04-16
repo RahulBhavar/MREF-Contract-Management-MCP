@@ -1,8 +1,8 @@
-# Bob_MREF2_MCP - Comprehensive MCP Server for Maximo Real Estate and Facilities
+# MREF Contract Management MCP Server
 
 ## 🎯 Overview
 
-Bob_MREF2_MCP is a comprehensive Model Context Protocol (MCP) server that enables IBM Bob to interact with Maximo Real Estate and Facilities (TRIRIGA) for managing real estate contracts and leases. This tool provides 10 powerful capabilities for contract management, data analysis, and reporting.
+A comprehensive Model Context Protocol (MCP) server for IBM Maximo Real Estate and Facilities (TRIRIGA) that enables AI assistants to manage real estate contracts and leases. This production-ready tool provides 10 powerful capabilities for contract management, data analysis, and reporting through OSLC APIs.
 
 ## ✨ Features
 
@@ -37,16 +37,18 @@ pip install -r requirements.txt
 
 2. **Configure Connection**
 
-The [`config.json`](config.json) file is already configured with:
+Edit the [`config.json`](config.json) file with your credentials:
 ```json
 {
   "mref": {
     "base_url": "https://semas.facilities.semas.apps.srvengmas.cp.fyre.ibm.com",
-    "username": "rbhavar",
-    "password": "passwordpassword"
+    "username": "your_username",
+    "password": "your_password"
   }
 }
 ```
+
+**Note:** The current configuration uses username "rahul" for testing. Update with your actual TRIRIGA credentials.
 
 3. **Verify MCP Registration**
 
@@ -148,8 +150,8 @@ The server uses POST authentication to TRIRIGA:
 **Payload:**
 ```json
 {
-  "userName": "rbhavar",
-  "password": "passwordpassword"
+  "userName": "your_username",
+  "password": "your_password"
 }
 ```
 
@@ -263,9 +265,9 @@ Internal IBM use only.
 
 ## 🔗 Related Projects
 
-- **Bob2_MREF** - Previous MREF integration
-- **Bob2_maximo** - Maximo MCP integration
-- **MREF_MCP2** - Alternative MREF connector
+- **[Masterdata_MREF](https://github.com/RahulBhavar/Masterdata_MREF)** - Master data management for MREF (Organizations, Locations, Geography, People)
+- **[Bob2_maximo](https://github.com/RahulBhavar/Bob2_maximo)** - Maximo Asset Management MCP integration
+- **[MREF_MCP](https://github.com/RahulBhavar/MREF_MCP)** - Alternative MREF connector with session management
 
 ## 📞 Support
 
