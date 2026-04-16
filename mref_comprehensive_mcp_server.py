@@ -70,7 +70,7 @@ def get_client() -> MREFOSLCClient:
     return mref_client
 
 
-@app.list_tools()
+@app.list_tools
 async def list_tools() -> List[Tool]:
     """List all available MCP tools"""
     return [
@@ -239,7 +239,7 @@ async def list_tools() -> List[Tool]:
     ]
 
 
-@app.call_tool()
+@app.call_tool
 async def call_tool(name: str, arguments: Any) -> List[TextContent]:
     """Handle tool calls"""
     try:
