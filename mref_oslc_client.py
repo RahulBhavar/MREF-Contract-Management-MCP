@@ -200,11 +200,13 @@ class MREFOSLCClient:
                 try:
                     data = response.json()
                     
-                    # Extract count if available
+                    # Extract count if available - check multiple possible formats
                     count = 0
                     if isinstance(data, dict):
                         if 'oslc:results' in data:
                             count = len(data['oslc:results'])
+                        elif 'rdfs:member' in data:
+                            count = len(data['rdfs:member'])
                         elif 'member' in data:
                             count = len(data['member'])
                     elif isinstance(data, list):
