@@ -6,7 +6,7 @@ This guide covers multiple ways to distribute and install the MREF Contract Mana
 
 ## ⚠️ Important: Python Version Requirement
 
-**This MCP server requires Python 3.10 or higher** due to the `mcp` package dependency.
+**This MCP server requires Python 3.10 or higher** due to the FastMCP framework dependency.
 
 ### Check Your Python Version
 ```bash
@@ -36,13 +36,10 @@ sudo apt install python3.11
 # Navigate to the package directory
 cd /path/to/mref-contract-mcp
 
-# Verify Python version
-python3 --version  # Must be 3.10+
+# Verify Python version (must be 3.10+)
+python3 --version
 
-# Install dependencies
-pip3 install -r requirements.txt
-
-# Or use specific Python version
+# Install dependencies using Python 3.11
 /opt/homebrew/bin/python3.11 -m pip install -r requirements.txt
 ```
 
@@ -53,7 +50,8 @@ pip3 install -r requirements.txt
 3. Run the installation command:
 ```bash
 cd mref-contract-mcp
-pip3 install -r requirements.txt
+# Use Python 3.11 or higher
+/opt/homebrew/bin/python3.11 -m pip install -r requirements.txt
 ```
 
 ---

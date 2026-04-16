@@ -23,7 +23,7 @@ A comprehensive Model Context Protocol (MCP) server for IBM Maximo Real Estate a
 
 ### Prerequisites
 
-- **Python 3.10 or higher** (required for MCP package)
+- **Python 3.10 or higher** (required for FastMCP framework)
 - IBM Bob with MCP support
 - Access to Maximo Real Estate and Facilities (TRIRIGA)
 
@@ -42,8 +42,7 @@ brew install python@3.11
 2. **Install Dependencies**
 ```bash
 cd mref-contract-mcp
-pip3 install -r requirements.txt
-# Or use specific Python version:
+# Use Python 3.11 (required for FastMCP)
 /opt/homebrew/bin/python3.11 -m pip install -r requirements.txt
 ```
 
@@ -62,34 +61,44 @@ Copy `config.example.json` to `config.json` and edit with your credentials:
 
 **Note:** The current configuration uses username "rahul" for testing. Update with your actual TRIRIGA credentials.
 
-3. **Register MCP Server with Bob**
+4. **Register MCP Server with Bob**
 
-Add the server to Bob's MCP settings file (typically at `~/.bob/settings/mcp_settings.json`):
+Add the server to Bob's MCP settings file at `<workspace>/.bob/mcp.json`:
 
 ```json
 {
   "mcpServers": {
-    "mref-contract-management": {
-      "command": "python3",
+    "mref-contract-manager": {
+      "command": "/opt/homebrew/bin/python3.11",
       "args": [
-        "/path/to/your/Bob_MREF2_MCP/mref_comprehensive_mcp_server.py"
+        "-u",
+        "/Users/rahulbhavar/Documents/BOB/mref-contract-mcp/mref_comprehensive_mcp_server.py"
       ],
+      "cwd": "/Users/rahulbhavar/Documents/BOB/mref-contract-mcp",
       "env": {
-        "PYTHONPATH": "/path/to/your/Bob_MREF2_MCP"
+        "PYTHONPATH": "/Users/rahulbhavar/Documents/BOB/mref-contract-mcp"
       },
-      "disabled": false
+      "disabled": false,
+      "alwaysAllow": [
+        "fetch_all_contracts",
+        "create_contract",
+        "fetch_contracts_filtered",
+        "update_contract",
+        "export_contracts_csv",
+        "bulk_import_contracts",
+        "get_contract_statistics",
+        "search_contracts_by_name",
+        "verify_connection",
+        "generate_comprehensive_report"
+      ]
     }
   }
 }
 ```
 
-**Replace `/path/to/your/Bob_MREF2_MCP` with your actual clone directory path.**
+**Important:** Update all paths to match your actual installation directory.
 
-For example:
-- macOS/Linux: `/Users/yourname/projects/Bob_MREF2_MCP`
-- Windows: `C:\Users\yourname\projects\Bob_MREF2_MCP`
-
-4. **Restart Bob** to load the MCP server
+5. **Restart Bob** to load the MCP server
 
 ## 📖 Usage Examples
 
